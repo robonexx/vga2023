@@ -1,4 +1,4 @@
-import { BASE_URL, API_KEY } from '.env';
+import { BASE_URL, API_KEY } from '/.env';
 let mustplayBtn = document.querySelector('.mustplay_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
 let topLastyearBtn = document.querySelector('.top_lastyear_btn');
