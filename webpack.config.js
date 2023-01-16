@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-/* const Dotenv = require('dotenv-webpack'); */
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -87,6 +87,9 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
-    /* new Dotenv(), */
+    new Dotenv({
+      systemvars: true,
+      prefix: 'process.env.',
+    }),
   ],
 };
