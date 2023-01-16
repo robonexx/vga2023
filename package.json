@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production SET NODE_ENV=production",
+    "build": "webpack --mode=production",
     "serve": "webpack-dev-server --mode=development"
   },
   "repository": {
@@ -18,11 +18,12 @@
     "url": "https://github.com/robonexx/vga2023/issues"
   },
   "homepage": "https://github.com/robonexx/vga2023#readme",
-   "dependencies": {
+  "dependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^8.0.0",
