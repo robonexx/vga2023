@@ -1,5 +1,5 @@
 /* import './style.css'; */
-const key = process.env.BASE_URL;
+const key = process.env.API_KEY;
 const base = process.env.BASE_URL;
 let mustplayBtn = document.querySelector('.mustplay_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
