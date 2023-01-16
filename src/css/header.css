@@ -1,0 +1,22 @@
+header {
+    width: 100%;
+    height: 80px;
+    background: var(--color-header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > .logo {
+    padding: 0.25rem 1rem;
+    width: 50%;
+    font-size: clamp(0.8rem, 1.4vw, 1.4rem);
+    color: pink;
+  }
+
+  @media(min-width: 768px) {
+    header > .logo {
+        padding: 0.25rem 4rem;
+    }
+  }
+  

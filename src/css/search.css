@@ -1,0 +1,153 @@
+.form {
+    margin: 0.5rem auto; 
+    position: relative;
+    height: 30px;
+    width: 90%;    
+    display: block;
+    z-index: 2;    
+}
+
+.text {
+    font-family: var(--font-primary);
+    position: absolute;
+    left: 57.5%;
+    z-index: -1;
+}
+
+i.fa-solid.fa-caret-left {
+    line-height: 1rem;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.form .search_wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    height: 100%;
+    width: 30px;
+    padding: 0.25rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-card);
+    border-radius: 25px;  
+    transition: width 0.3s ease;  
+}
+
+.form .search_wrapper:hover,
+.form .search_wrapper:focus {
+    background-color: var(--color-card); 
+    cursor: pointer; 
+}
+
+.form .search_wrapper.active {
+    position: relative;
+    left: 0;
+    transform: translateX(0%);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+
+
+.form .search_wrapper label {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.1rem;
+    background-color: transparent;
+    display: grid;
+    place-content: center;
+}
+
+.form .search_wrapper label i {
+    color: white;    
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    cursor: pointer;
+}
+
+
+
+form label i::before {
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+}
+
+form input {
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+
+form input[type="text"] {
+    padding: 0.1rem 0.5rem;
+    border: none;
+    outline: none;
+    display: none;
+    width: 0;
+    opacity: 0;
+    background-color: transparent;
+    color: var(--color-secondary);
+    border-radius: 25px;
+    border: 1px solid rgba(151, 151, 151, 0.634);
+    transform: translateY(-50px);
+    transition: all 0.4s ease-in-out;
+   
+}
+
+#search.active {
+    display: inline-block;
+    opacity: 1;
+    width: unset;
+    transform: translateY(0px);
+    
+}
+
+#search::placeholder {
+    font-size: 0.8rem;
+    transition: all 1s ease-in-out;
+}
+
+form #submit {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.4rem;
+    display: none;
+    width: 0;
+    border: none;    
+    background-color: transparent;
+    color: var(--color-nav);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 100;
+    line-height: 1.2rem;
+}
+
+form #submit.active {
+    display: inline-block;
+    width: unset;
+}
+
+form #submit:hover,
+form #submit:active {
+    color: rgb(222, 222, 222);
+    cursor: pointer;
+}
+
+
+@media(min-width: 480px) {
+    .form {
+        width: 80%;
+    }
+}
+@media(min-width: 980px) {
+    .form {
+        width: 40%;
+    }
+    form input[type="text"].active {
+        width: unset;
+    }
+}

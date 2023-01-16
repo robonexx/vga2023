@@ -1,0 +1,22 @@
+.logo {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#logo {
+    position: absolute;
+    width: 100px;
+}
+
+#logo path:nth-child(1) {
+    fill: #784B84;
+}
+#logo path:nth-child(2) {
+    fill: #6c63fe;
+}
+#logo path:nth-child(3) {
+    fill: #fafafa;
+}

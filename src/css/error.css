@@ -1,0 +1,17 @@
+.error_msg {
+    display: none;
+    background-color: rgb(242, 242, 242);
+    width: 80%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-weight: 400;
+    color: tomato;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.error_msg.show {
+    display: inline;
+    opacity: 1    
+}

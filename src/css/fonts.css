@@ -1,0 +1,20 @@
+  @font-face {
+    font-family: Kenoky;
+    src: url("../assets/fonts/KenokyLight.ttf");
+  }
+
+  
+  @font-face {
+    font-family: SourceProLight;
+    src: url("../assets/fonts/SourceSansPro-Light.otf");
+  }
+
+  @font-face {
+    font-family: SourceProBold;
+    src: url("../assets/fonts/SourceSansPro-Bold.otf");
+  }
+
+  @font-face {
+    font-family: SourcePro;
+    src: url("../assets/fonts/SourceSansPro-Regular.otf");
+  }

@@ -1,0 +1,74 @@
+@import url('./card.css');
+
+#games_list {
+  list-style-type: none;
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 100%;  
+  display: flex;   
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--color-card-wrapper-bg);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.089), rgba(255, 255, 255, 0.13)),url('../images/gamenight.svg');
+  background-position: top center;
+  background-size: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+#games_list {
+  background-repeat: no-repeat;
+}
+}
+
+
+
+
+
+
+/* 
+@media (min-width: 420px) {
+
+  .game_card {
+    width: ;
+  }
+  .game_card img {
+    margin: 0;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+} */
+
+
+@media ( width > 480px) {
+  #games_list {
+    width: 100%;
+  }
+  .game_card {
+    position: relative;
+    margin: 1rem 1rem;
+    width: 256px;
+    max-height: 320px;
+    height: 100%;
+  }
+  }
+
+
+@media (width > 992px) {
+  #games_list {
+    width: 80%;
+  }
+
+  
+.game_card {
+  position: relative;
+  margin: 1rem 2rem;
+  width: 256px;
+  max-height: 320px;
+  height: 100%;
+}
+}
+
+

@@ -1,0 +1,24 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(50vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(10deg) translate(-160px, 80px);    
+    object-fit: contain;
+    object-position: center;
+    z-index: -1;
+}
+
+.hero > .platform_wrapper i {
+    filter: drop-shadow(0 2px 5px rgb(91, 91, 91));
+}

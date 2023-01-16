@@ -1,0 +1,113 @@
+.game_card {
+    position: relative;
+    margin: 1rem 2rem;
+    width: 80%;
+    height: 100%;
+    font-family: var(--font-primary);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25), inset 0 0 2px 0px rgba(207, 207, 207, 0.649);
+    background-color: rgba(0, 0, 0, .0125);
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(2px);
+    cursor: pointer;
+
+    animation: cardShow 1s ease 1;
+  }
+
+
+
+@keyframes cardShow {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+to {
+opacity: 1;
+-webkit-transform: scale(1);
+transform: scale(1);
+}
+}
+
+  
+  .game_card > img {
+    width: 100%;
+    height: 148px;
+    top:0;
+    object-fit: cover;
+    object-position: top center;
+  }
+  
+   
+  .game_card > h2 {
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: clamp(1rem, 1vw, 1.2rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    resize: none;
+  }
+  
+  .game_card > h2, .game_info, .game_desc, .game_review {
+    padding: 0.25rem 2rem;
+  }
+  
+   
+  .game_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .game_info .game_score {
+    font-size: 0.8rem;
+    padding: 0.25rem;
+  }
+
+  .game_card > h2, .game_info, .game_platforms {
+    color: var(--color-card);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.122);
+  }
+  
+  .game_info .game_platforms {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    padding: 0.25rem 0rem;
+  }
+
+  
+  .game_review {
+    position: absolute;
+    background-color: var(--color-card-bg);
+    color: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%) translateX(100%) rotate(20deg);
+    transition: transform 0.4s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .game_review:hover,
+  .game_review:active,
+  .game_review:focus {
+    opacity: 1;
+  }
+  
+  .game_card:hover .game_review,
+  .game_card:active .game_review {
+    transform: translateY(0%) translateX(0%);
+  }

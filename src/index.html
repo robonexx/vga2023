@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d3412194f0.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <title>VGA</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <svg id="logo" viewBox="0 0 1174 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M105.106 156.31L191.999 440.768H195.224L282.117 156.31H387.223L256.125 544.69H131.098L0 156.31H105.106Z"
+                    fill="white" />
+                <path
+                    d="M661.086 283.178C658.936 275.213 655.774 268.197 651.6 262.128C647.427 255.933 642.304 250.687 636.233 246.388C630.162 242.09 623.205 238.866 615.363 236.717C607.522 234.441 598.921 233.303 589.561 233.303C570.716 233.303 554.399 237.854 540.613 246.957C526.953 256.06 516.392 269.334 508.929 286.781C501.467 304.102 497.736 325.151 497.736 349.931C497.736 374.837 501.34 396.076 508.55 413.65C515.759 431.223 526.194 444.624 539.854 453.853C553.514 463.082 570.083 467.697 589.561 467.697C606.763 467.697 621.308 464.915 633.197 459.353C645.213 453.663 654.32 445.635 660.517 435.268C666.715 424.901 669.814 412.701 669.814 398.668L687.268 400.754H592.787V332.295H760.311V383.687C760.311 418.454 752.912 448.227 738.114 473.007C723.442 497.786 703.205 516.813 677.403 530.088C651.727 543.363 622.193 550 588.802 550C551.743 550 519.174 541.972 491.095 525.916C463.017 509.86 441.135 486.977 425.452 457.267C409.768 427.43 401.926 392.031 401.926 351.069C401.926 319.209 406.669 290.953 416.155 266.3C425.641 241.521 438.859 220.534 455.807 203.34C472.882 186.146 492.613 173.124 515 164.275C537.514 155.425 561.735 151 587.664 151C610.178 151 631.11 154.224 650.462 160.671C669.94 167.119 687.142 176.222 702.066 187.979C717.118 199.737 729.323 213.707 738.683 229.89C748.042 246.072 753.861 263.835 756.137 283.178H661.086Z"
+                    fill="white" />
+                <path
+                    d="M887.709 544.69H786.777L917.875 156.31H1042.9L1174 544.69H1073.07L981.812 254.163H978.776L887.709 544.69Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <nav class="nav">
+            <ul class="nav_wrapper">
+                <li class="nav_item"><a href="./index.html" class="nav_link">Games</a></li>
+                <li class="nav_item"><a href="./pages/movies.html" class="nav_link">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="hero">
+            <h1>GAMES SEARCH</h1>
+            <div class="platform_wrapper">
+                <i class="fa-solid fa-headset"></i>
+                <i class="fa-brands fa-playstation"></i>
+                <i class="fa-brands fa-xbox"></i>
+                <i class="fa-solid fa-n"></i>
+            </div>
+            <img class="hero_img" src="./images/gaming.svg" alt="">
+        </div>
+        <form id="form" class="form">
+            <p class="text"><i class="fa-solid fa-caret-left"></i>Search games</p>
+            <div class="search_wrapper">
+                <label for="search" id="label"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <input id="search" type="text" name="search" placeholder="search game... ">
+                <input type="submit" value="submit" id="submit">
+            </div>
+        </form>
+        <div class="buttons_wrapper">
+            <button class="mustplay_btn fetch_btn">Must play games</button>
+            <button class="top_score_btn fetch_btn">Top score games</button>
+            <button class="top_lastyear_btn fetch_btn">Top 2022</button>
+            <button class="upcoming_btn fetch_btn">Upcoming games</button>
+        </div>
+
+        <p class="error_msg"></p>
+
+        <div class="pagination_wrapper">
+            <button class="btn prev_btn" title="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="pagination_btns">
+            </div>
+            <button class="btn next_btn" title="next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ul id="games_list">
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">
+                <img src="./warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="game_info">
+                    <span class="game_score">Score 96%</span>
+                    <span class="game_plattforms">xbox, pc, ps5</span>
+                </div>
+                <div class="game_card_back game_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+            <li class="game_card game_card_front">item</li>
+
+        </ul>
+    </main>
+
+    <footer>
+        <h4>&#9426; - ROB - ONE - 2022</h4>
+    </footer>
+    <script src="index.js" type="module"></script>
+
+</body>
+
+</html>
