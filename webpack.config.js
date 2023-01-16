@@ -88,9 +88,11 @@ module.exports = {
       inject: 'body',
     }),
     new Dotenv({
+      path: `./.env`,
       systemvars: true,
       prefix: 'process.env.',
       ignoreStub: true,
+      allowEmptyValues: true,
     }),
   ],
 };
