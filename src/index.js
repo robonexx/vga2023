@@ -1,5 +1,6 @@
 /* import './style.css'; */
-
+const key = process.env.API_KEY;
+const base = process.env.BASE_URL;
 let mustplayBtn = document.querySelector('.mustplay_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
 let topLastyearBtn = document.querySelector('.top_lastyear_btn');
@@ -20,20 +21,18 @@ let currentPage = 1;
 
 // queries for different api endpoints
 
-const baseUrl = `${process.env.BASE_URL}?key=${
-  process.env.API_KEY
-}&page=${1}&page_size=${20}`;
+const baseUrl = `${base}?key=${key}&page=${1}&page_size=${20}`;
 
 // found this mustplaygames api enpoint on stackoverflow set an error on purpose on this fetch, take away the /not/ and it works
-const mustplayGamesUrl = `https://rawg.io/not/api/collections/must-play/games?key=${process.env.API_KEY}`;
+const mustplayGamesUrl = `https://rawg.io/not/api/collections/must-play/games?key=${key}`;
 
-const upcomingGamesUrl = `${process.env.BASE_URL}?key=${process.env.API_KEY}&dates=2022-01-01,2023-12-01&ordering=-released&page_size=40`;
+const upcomingGamesUrl = `${base}?key=${key}&dates=2022-01-01,2023-12-01&ordering=-released&page_size=40`;
 
-const topGamesUrl = `${process.env.BASE_URL}?key=${process.env.API_KEY}&dates=2010-01-01,2023-01-01&ordering=-rating&page_size=20&metacritic=90,100`;
+const topGamesUrl = `${base}?key=${key}&dates=2010-01-01,2023-01-01&ordering=-rating&page_size=20&metacritic=90,100`;
 
-const topLastYearUrl = `${process.env.BASE_URL}?key=${process.env.API_KEY}&dates=2022-01-01,2022-12-30&ordering=-rating&page_size=20&metacritic=80,100`;
+const topLastYearUrl = `${base}?key=${key}&dates=2022-01-01,2022-12-30&ordering=-rating&page_size=20&metacritic=80,100`;
 
-const SEARCH_GAMES_URL = `${process.env.BASE_URL}?key=${process.env.API_KEY}&search=`;
+const SEARCH_GAMES_URL = `${base}?key=${key}&search=`;
 
 let fetchURL = '';
 
