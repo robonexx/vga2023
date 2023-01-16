@@ -10,7 +10,7 @@
   justify-content: center;
   border-radius: 10px;
   background-color: var(--color-card-wrapper-bg);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.089), rgba(255, 255, 255, 0.13)),url('../images/gamenight.svg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.089), rgba(255, 255, 255, 0.13)),url('../assets/images/gamenight.svg');
   background-position: top center;
   background-size: 100%;
   object-fit: cover;
