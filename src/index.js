@@ -1,4 +1,4 @@
-import './style.css';
+/* import './style.css'; */
 let mustplayBtn = document.querySelector('.mustplay_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
 let topLastyearBtn = document.querySelector('.top_lastyear_btn');
