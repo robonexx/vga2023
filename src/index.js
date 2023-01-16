@@ -1,4 +1,6 @@
 /* import './style.css'; */
+process.env.BASE_URL;
+process.env.API_KEY;
 let mustplayBtn = document.querySelector('.mustplay_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
 let topLastyearBtn = document.querySelector('.top_lastyear_btn');
