@@ -90,6 +90,7 @@ module.exports = {
     new Dotenv({
       systemvars: true,
       prefix: 'process.env.',
+      ignoreStub: true,
     }),
   ],
 };
