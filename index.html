@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d3412194f0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
-    <title>VGA</title>
+    <script src="./src/index.js" defer type="module"></script>
+    <link rel="stylesheet" href="./src/style.css">
+    <title>VGA - games</title>
 </head>
-<!-- try to upload this to vercel, lets see how it goes -->
 
 <body>
     <header>
@@ -29,7 +29,7 @@
         <nav class="nav">
             <ul class="nav_wrapper">
                 <li class="nav_item"><a href="./index.html" class="nav_link">Games</a></li>
-                <li class="nav_item"><a href="./pages/movies.html" class="nav_link">Movies</a></li>
+                <li class="nav_item"><a href="./src/pages/movies.html" class="nav_link">Movies</a></li>
             </ul>
         </nav>
     </header>
@@ -44,14 +44,15 @@
                 <i class="fa-brands fa-xbox"></i>
                 <i class="fa-solid fa-n"></i>
             </div>
-            <img class="hero_img" src="./assets/images/gaming.svg" alt="">
+            <img class="hero_img" src="./src/images/gaming.svg" alt="">
         </div>
         <form id="form" class="form">
             <p class="text"><i class="fa-solid fa-caret-left"></i>Search games</p>
             <div class="search_wrapper">
-                <label for="search" id="label"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <label for="search" id="label"><i class="fa-solid fa-magnifying-glass search_btn"></i></label>
                 <input id="search" type="text" name="search" placeholder="search game... ">
-                <input type="submit" value="submit" id="submit">
+                <button type="submit" id="submit"><i class="fa-solid fa-magnifying-glass">.</i></button>
+                <!--  <input type="submit" value="" id="submit" class="fa-solid fa-play"> -->
             </div>
         </form>
         <div class="buttons_wrapper">
@@ -74,129 +75,140 @@
             </button>
         </div>
 
-        <ul id="games_list">
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
+        <ul id="items_list">
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
                 <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_platforms">xbox, pc, ps5</span>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
                 </div>
-                <div class="game_card_back game_review">
+                <div class="item_card_back item_review">
                     <p>review</p>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
                         at impedit quae laboriosam ullam laudantium optio.</p>
                 </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="./src/images/warzone2.webp" alt="">
+                <h2>Game Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">xbox, pc, ps5</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <!--  <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li> -->
 
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">
-                <img src="./assets/images/warzone2.webp" alt="">
-                <h2>Game Title</h2>
-                <div class="game_info">
-                    <span class="game_score">Score 96%</span>
-                    <span class="game_plattforms">xbox, pc, ps5</span>
-                </div>
-                <div class="game_card_back game_review">
-                    <p>review</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
-                </div>
-            </li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
-            <li class="game_card game_card_front">item</li>
         </ul>
     </main>
 
     <footer>
         <h4>&#9426; - ROB - ONE - 2022</h4>
     </footer>
-    <script src="index.js" type="module"></script>
 
 </body>
 

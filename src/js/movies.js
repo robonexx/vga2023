@@ -1,9 +1,9 @@
-import { BASE_URL, API_KEY } from './keys/keys.js';
+import { MOVIE_BASE_URL, MOVIE_API_KEY } from '../keys/keys.js';
 
-let mustplayBtn = document.querySelector('.mustplay_btn');
+let cinemaBtn = document.querySelector('.cinema_btn');
 let topScoreBtn = document.querySelector('.top_score_btn');
 let topLastyearBtn = document.querySelector('.top_lastyear_btn');
-let upcomingBtn = document.querySelector('.upcoming_btn');
+let bestScifiBtn = document.querySelector('.best_scifi_btn');
 let errorMsg = document.querySelector('.error_msg');
 //
 const prevBtn = document.querySelector('.prev_btn');
@@ -20,26 +20,26 @@ let currentPage = 1;
 
 // queries for different api endpoints
 
-const baseUrl = `${BASE_URL}?key=${API_KEY}&page=${1}&page_size=${20}`;
+const BASE_URL = `${MOVIE_BASE_URL}discover/movie?sort_by=popularity.desc&api_key=${MOVIE_API_KEY}&page=1`;
+const IMG_URL = 'https://image.tmdb.org/t/p/w1280';
 
-// found this mustplayitems api enpoint on stackoverflow set an error on purpose on this fetch, take away the /not/ and it works
-const mustplayitemsUrl = `https://rawg.io/not/api/collections/must-play/items?key=${API_KEY}`;
+const cinemaUrl = `${MOVIE_BASE_URL}/discover/movie?primary_release_date.gte=2022-12-31&primary_release_date.lte=2023-06-30&api_key=${MOVIE_API_KEY}&page=1`;
 
-const upcomingitemsUrl = `${BASE_URL}?key=${API_KEY}&dates=2022-01-01,2023-12-01&ordering=-released&page_size=40`;
+const topitemsUrl = `${MOVIE_BASE_URL}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&vote_count.gte=1000&api_key=${MOVIE_API_KEY}&page=1`;
 
-const topitemsUrl = `${BASE_URL}?key=${API_KEY}&dates=2010-01-01,2023-01-01&ordering=-rating&page_size=20&metacritic=90,100`;
+const topLastYearUrl = `${MOVIE_BASE_URL}/discover/movie?primary_release_year=2022&sort_by=vote_average.desc&vote_count.gte=2000&api_key=${MOVIE_API_KEY}&page=1`;
 
-const topLastYearUrl = `${BASE_URL}?key=${API_KEY}&dates=2022-01-01,2022-12-30&ordering=-rating&page_size=20&metacritic=80,100`;
+const bestSciFiUrl = `${MOVIE_BASE_URL}/discover/movie?with_genres=878&primary_release_date.gte=1960-01-01&primary_release_date.lte=2023-01-01&sort_by=vote_average.desc&vote_count.gte=1000&api_key=${MOVIE_API_KEY}&page=1`;
 
-const SEARCH_itemS_URL = `${BASE_URL}?key=${API_KEY}&search=`;
+const SEARCH_API = `${MOVIE_BASE_URL}search/movie?&api_key=${MOVIE_API_KEY}&query=`;
 
 let fetchURL = '';
 
 // fetch api
 
-const fetchGames = async () => {
+const fetchMovies = async () => {
   try {
-    const res = await fetch(baseUrl);
+    const res = await fetch(BASE_URL);
     const data = await res.json();
     itemsArr = data.results;
     if (!res.ok) {
@@ -47,7 +47,7 @@ const fetchGames = async () => {
       return;
     } else {
       createItem(itemsArr);
-      /*  console.log(itemsArr); */
+      /* console.log(itemsArr); */
       getPaginationNumbers(itemsArr);
     }
   } catch (error) {
@@ -61,31 +61,13 @@ const fetchGames = async () => {
   }
 };
 
-// get top items fetch
-/* const mustplayitems = async () => {
-  try {
-    const res = await fetch(`${API_URL_TOP}?key=${API_KEY}`);
-    const data = await res.json();
-    itemsArr = data.results;
-    if (!res.ok) {
-      console.log(data.description);
-      return;
-    } else {
-      createItem(itemsArr);
-    }
-  } catch (error) {
-    console.log(error + 'something went wrong');
-  }
-};
- */
-
 const fetchNew = async (url) => {
   try {
     const res = await fetch(url);
     const data = await res.json();
     itemsArr = data.results;
     if (!res.ok) {
-      console.log('couldent fetch data');
+      console.log('no data, something went wrong');
       return;
     } else {
       createItem(itemsArr);
@@ -110,8 +92,8 @@ const fetchNew = async (url) => {
 // xbox series x/s id 186
 // Nintendo Switch id 7
 
-mustplayBtn.addEventListener('click', () => {
-  fetchURL = mustplayitemsUrl;
+cinemaBtn.addEventListener('click', () => {
+  fetchURL = cinemaUrl;
   fetchNew(fetchURL);
 });
 topScoreBtn.addEventListener('click', () => {
@@ -122,15 +104,15 @@ topLastyearBtn.addEventListener('click', () => {
   fetchURL = topLastYearUrl;
   fetchNew(fetchURL);
 });
-upcomingBtn.addEventListener('click', () => {
-  fetchURL = upcomingitemsUrl;
+bestScifiBtn.addEventListener('click', () => {
+  fetchURL = bestSciFiUrl;
   fetchNew(fetchURL);
 });
 
 // window load fetch
 
 window.addEventListener('load', () => {
-  fetchGames();
+  fetchMovies();
   setCurrentPage(1);
 
   prevBtn.addEventListener('click', () => {
@@ -235,60 +217,50 @@ const setCurrentPage = async (pageNum) => {
 
 // creating the item cards from the fetch
 
-// icons will only use 4 not getting mac, ios, android, etc
-
-const ps = '<i class="fa-brands fa-playstation"></i>';
-const xbox = '<i class="fa-brands fa-xbox"></i>';
-const pc = '<i class="fa-solid fa-headset"></i>';
-const nintendo = '<i class="fa-solid fa-n"></i>';
-
 const createItem = (item) => {
   let ul = itemsList;
   let html = '';
 
   item.forEach((item) => {
-    let platforms = '';
+    const noImg = '../images/movie_frame.svg';
+    let itemImg;
+    if (
+      item.backdrop_path === null ||
+      item.backdrop_path === undefined ||
+      item.backdrop_path === ''
+    ) {
+      itemImg = noImg;
+    } else {
+      itemImg = IMG_URL + item.backdrop_path;
+    }
 
-    item.parent_platforms.forEach((p) => {
-      let name = p.platform.name;
-      switch (name) {
-        case 'PC':
-          name = pc;
-          break;
-        case 'PlayStation':
-          name = ps;
-          break;
-        case 'Xbox':
-          name = xbox;
-          break;
-        case 'Nintendo':
-          name = nintendo;
-          break;
-        default:
-          return null;
-      }
-
-      platforms += `
-                    <span>${name}</span>
-                    `;
-    });
-
+    let reviewImg;
+    if (
+      item.poster_path === null ||
+      item.poster_path === undefined ||
+      item.poster_path === ''
+    ) {
+      reviewImg = noImg;
+    } else {
+      reviewImg = IMG_URL + item.poster_path;
+    }
     html += `
-    <li class="item_card item_card_front">
-                <img src="${item.background_image}" class="game_img" alt="img of ${item.name}">
-                <h2>${item.name}</h2>
+    <li class="item_card item_card_front movie">
+                <img src="${itemImg}" img of ${item.title}>
+                <h2>${item.title}</h2>
                 <div class="item_info">
                     <div>
-                        <span class="item_score">Rating: ${item.rating}</span>
-                        <span class="item_score">Metacritic: ${item.metacritic}</span>
-                        <p class="item_plattforms">${platforms}</p>
+                        <span class="item_score">Rating: ${item.vote_average}</span>
+                        <span class="item_score">Released: ${item.release_date}</span>
                     </div>
                 </div>
                 <div class="item_card_back item_review">
-                    <p>Review: </p>
-                    <p>${item.name}</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
-                        at impedit quae laboriosam ullam laudantium optio.</p>
+                <img class="item_bg_img" src="${reviewImg}" alt="movie img ${item.title}"></img>
+                    <div class="overview">
+                        <p>Overview: </p>
+                        <p>${item.title}</p>
+                        <p>${item.overview}</p>
+                    </div>
                 </div>
             </li>
     `;
@@ -349,10 +321,14 @@ form.addEventListener('submit', function (e) {
 
 // function to fetch the search query
 const handleSearch = async (search) => {
-  fetch(SEARCH_itemS_URL + `${search}`)
-    .then((res) => res.json())
-    .then((data) => {
-      /*  console.log(data.results); */
-      createItem(data.results);
-    });
+  if (search) {
+    fetch(SEARCH_API + `${search}`)
+      .then((res) => res.json())
+      .then((data) => {
+        /*  console.log(data.results); */
+        createItem(data.results);
+      });
+  } else {
+    return;
+  }
 };

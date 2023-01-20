@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d3412194f0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
-    <title>Movies</title>
+    <script src="../js/movies.js" type="module" defer></script>
+    <title>VGA - movies</title>
 </head>
 
 <body>
@@ -27,12 +28,123 @@
         </div>
         <nav class="nav">
             <ul class="nav_wrapper">
-                <li class="nav_item"><a href="../index.html" class="nav_link">Games</a></li>
+                <li class="nav_item"><a href="../../index.html" class="nav_link">Games</a></li>
                 <li class="nav_item"><a href="./movies.html" class="nav_link">Movies</a></li>
             </ul>
         </nav>
     </header>
-    <h1>Nothing here yet</h1>
+    <main>
+        <div class="hero">
+            <h1>MOVIE SEARCH</h1>
+            <img class="hero_img" src="../images/goouttothemovies.svg" alt="">
+        </div>
+        <form id="form" class="form">
+            <p class="text"><i class="fa-solid fa-caret-left"></i>Search movies</p>
+            <div class="search_wrapper">
+                <label for="search" id="label"><i class="fa-solid fa-magnifying-glass search_btn"></i></label>
+                <input id="search" type="text" name="search" placeholder="search... ">
+                <button type="submit" id="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <!--  <input type="submit" value="" id="submit" class="fa-solid fa-play"> -->
+            </div>
+        </form>
+        <div class="buttons_wrapper">
+            <button class="cinema_btn fetch_btn">Upcoming movies</button>
+            <button class="top_score_btn fetch_btn">Highest rated</button>
+            <button class="top_lastyear_btn fetch_btn">Top 2022</button>
+            <button class="best_scifi_btn fetch_btn">Best Sci-fi</button>
+        </div>
+
+        <p class="error_msg"></p>
+
+        <div class="pagination_wrapper">
+            <button class="btn prev_btn" title="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="pagination_btns">
+            </div>
+            <button class="btn next_btn" title="next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ul id="items_list" class="movie_list">
+            <li class="item_card item_card_front">
+                <img src="../images/shawshank.jpg" alt="">
+                <h2>Movie Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">something something</span>
+                </div>
+                <div class="overview">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis
+                        dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="../images/shawshank.jpg" alt="">
+                <h2>Movie Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">something something</span>
+                </div>
+                <div class="overview">
+                    <p>review</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis
+                        dolorum
+                        at impedit quae laboriosam ullam laudantium optio.</p>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="../images/shawshank.jpg" alt="">
+                <h2>Movie Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">something something</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <div class="overview">
+                        <p>review</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis
+                            dolorum
+                            at impedit quae laboriosam ullam laudantium optio.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="item_card item_card_front">
+                <img src="../images/shawshank.jpg" alt="">
+                <h2>Movie Title</h2>
+                <div class="item_info">
+                    <span class="item_score">Score 96%</span>
+                    <span class="item_platforms">something something</span>
+                </div>
+                <div class="item_card_back item_review">
+                    <div class="overview">
+                        <p>review</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis
+                            dolorum
+                            at impedit quae laboriosam ullam laudantium optio.</p>
+                    </div>
+                </div>
+            </li>
+            <!--  <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li>
+            <li class="item_card game_item_front">item</li> -->
+
+        </ul>
+    </main>
+
+    <footer>
+        <h4>&#9426; - ROB - ONE - 2022</h4>
+    </footer>
+
 
 </body>
 

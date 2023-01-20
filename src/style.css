@@ -1,7 +1,7 @@
 @import url('./css/header.css');
 @import url('./css/logo.css');
 @import url('./css/nav.css');
-@import url('./css/games.css');
+@import url('./css/items.css');
 @import url('./css/hero.css');
 @import url('./css/search.css');
 @import url('./css/pagination.css');
@@ -17,6 +17,8 @@
     --color-nav-bg: #252525;
     --color-link: #F9F6EE;
 
+    --color-movie-bg: rgb(190, 90, 73);
+
     --color-card-wrapper-bg: #784B84;
     --color-card: #342f36;
     --color-card-bg: #ededed;
@@ -29,7 +31,6 @@
     --font-bold: SourceProBold;
     --font-light: SourceProLight;
     --font-secondary: Kenoky;
-
 }
 
 * {
@@ -49,16 +50,19 @@ body {
     overflow-x: hidden;
 }
 
-  h1 {
+h1 {
     color: var(--color-primary);
     text-align: center;
     text-shadow: 3px 4px 7px rgba(163, 161, 161, 0.8);
-  }
-i {
+}
+
+i,
+.fa-solid,
+.fa-brands {
     height: 24px;
     width: 24px;
-   /*  font-size: clamp(0.8rem, 1.5vw, 1rem); */
-  }
+    font-size: clamp(0.8rem, 1.5vw, 1rem); 
+}
 
 main {
     width: 100%;
@@ -93,7 +97,6 @@ main {
     font-size: 0.6rem;
 }
 
-
 .fetch_btn:hover {
     background-color: #282828;
     color: #fafafa;
@@ -104,106 +107,4 @@ main {
     background: linear-gradient(120deg, red, tomato);
     color: red;
     text-shadow:  -1px -1px 1px black;
-}
-
-#repos {
-    margin: 1rem auto;
-    padding: 1rem 2rem;
-    display: flex;
-    flex-flow: row;
-    background: #888;
-    width: 80%;
-    min-height: 500px;
-    border: 1px solid aqua;
-    transition: all 0.6s ease-in-out;
-}
-
-#repos > li {
-    list-style-type: none;
-    padding: 0.5rem 2rem;
-    background-color: #000;
-    width: 100%;
-    cursor: pointer;
-}
-
-#repos > .title {
-    color: #000;
-    padding: 0.5rem 2rem;
-    font-size: 1.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.repo_a {
-    color: #121212;
-    font-size: 1rem;
-    text-transform: capitalize;
-    text-align: left;
-    font-weight: 400;
-    text-decoration: double;
-}
-
-#repos > li  > a.repo_a {
-    color: aqua;
-    font-size: 1rem;
-    text-transform: capitalize;
-    text-align: left;
-    font-weight: 400;
-    text-decoration: double;
-    
-}
-
-#repos li:hover {
-    background-color: #282828;
-}
-
-.output {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.apod_title {
-    padding: 0.5rem 4rem;
-    background-color: black;
-    color: white;
-    font-size: 1.4rem;
-}
-
-p {
-    padding: 0.5rem 0;
-    font-size: 1rem;
-    font-weight: 100;
-}
-
-.desc {
-    padding: 0.5rem 0;
-    font-size: 1rem;
-    font-weight: 400;
-}
-.date {
-    margin: 1rem 0;
-    padding: 0.5rem 0;
-    font-size: 0.6rem;
-    font-weight: 100;
-    background-color: white;
-    width: fit-content;
-    color: black;
-}
-
-img {
-    margin: 0 auto;
-    margin: 0 auto;
-    max-width: 360px;
-    width: 100%;
-}
-
-.output > a {
-    text-align: center;
-}
-
-.output > a:hover {
-    opacity: 0.9;
-    transform: scale(0.98);
 }
