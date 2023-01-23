@@ -86,6 +86,7 @@ transform: scale(1);
 
   .item_card.movie > h2, .item_card.movie .item_info {
     color: var(--color-secondary);
+    text-shadow: none;
     
   }
   
