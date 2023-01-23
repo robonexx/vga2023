@@ -83,12 +83,12 @@ transform: scale(1);
     color: black;
     
   }
-
+/* 
   .item_card.movie > h2, .item_card.movie .item_info {
     color: var(--color-secondary);
     text-shadow: none;
     
-  }
+  } */
   
   .item_info .item_platforms {
     width: 100%;
