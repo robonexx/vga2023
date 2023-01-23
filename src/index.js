@@ -22,7 +22,7 @@ let currentPage = 1;
 
 const baseUrl = `${BASE_URL}?key=${API_KEY}&page=${1}&page_size=${20}`;
 
-// found this mustplayitems api enpoint on stackoverflow set an error on purpose on this fetch, take away the /not/ and it works
+// found this mustplayitems api enpoint on stackoverflow set an error on purpose on this fetch, take away not/ and it works
 const mustplayitemsUrl = `https://rawg.io/not/api/collections/must-play/items?key=${API_KEY}`;
 
 const upcomingitemsUrl = `${BASE_URL}?key=${API_KEY}&dates=2022-01-01,2023-12-01&ordering=-released&page_size=40`;
@@ -60,24 +60,6 @@ const fetchGames = async () => {
     }, 3000);
   }
 };
-
-// get top items fetch
-/* const mustplayitems = async () => {
-  try {
-    const res = await fetch(`${API_URL_TOP}?key=${API_KEY}`);
-    const data = await res.json();
-    itemsArr = data.results;
-    if (!res.ok) {
-      console.log(data.description);
-      return;
-    } else {
-      createItem(itemsArr);
-    }
-  } catch (error) {
-    console.log(error + 'something went wrong');
-  }
-};
- */
 
 const fetchNew = async (url) => {
   try {
@@ -281,7 +263,7 @@ const createItem = (item) => {
                     <div>
                         <span class="item_score">Rating: ${item.rating}</span>
                         <span class="item_score">Metacritic: ${item.metacritic}</span>
-                        <p class="item_plattforms">${platforms}</p>
+                        <p class="item_platforms">${platforms}</p>
                     </div>
                 </div>
                 <div class="item_card_back item_review">
