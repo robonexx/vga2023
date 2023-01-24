@@ -78,8 +78,7 @@ const fetchNew = async (url) => {
   } catch (error) {
     console.log(error + 'something went wrong');
     errorMsg.classList.add('show');
-    errorMsg.textContent =
-      'Could not load data, server error (I dont know what to write here)';
+    errorMsg.textContent = 'Could not load data, server error';
     setTimeout(() => {
       errorMsg.classList.remove('show');
       errorMsg.textContent = '';
