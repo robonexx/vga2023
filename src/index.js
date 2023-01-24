@@ -48,7 +48,6 @@ const fetchGames = async () => {
       return;
     } else {
       createItem(itemsArr);
-      /*  console.log(itemsArr); */
       getPaginationNumbers(itemsArr);
     }
   } catch (error) {
@@ -74,6 +73,36 @@ const fetchNew = async (url) => {
       createItem(itemsArr);
       /* console.log(data);
       console.log(itemsArr); */
+      getPaginationNumbers(itemsArr);
+    }
+  } catch (error) {
+    console.log(error + 'something went wrong');
+    errorMsg.classList.add('show');
+    errorMsg.textContent =
+      'Could not load data, server error (I dont know what to write here)';
+    setTimeout(() => {
+      errorMsg.classList.remove('show');
+      errorMsg.textContent = '';
+    }, 3000);
+  }
+};
+
+// function to fetch the search query
+const handleSearch = async (search) => {
+  /*  fetch(SEARCH_itemS_URL + `${search}`)
+    .then((res) => res.json())
+    .then((data) => {
+      createItem(data.results);
+    }); */
+  try {
+    const res = await fetch(SEARCH_itemS_URL + `${search}`);
+    const data = await res.json();
+    itemsArr = data.results;
+    if (!res.ok) {
+      console.log('couldent find the game you was looking for');
+      return;
+    } else {
+      createItem(itemsArr);
       getPaginationNumbers(itemsArr);
     }
   } catch (error) {
@@ -337,16 +366,6 @@ form.addEventListener('submit', function (e) {
   searchText.style.opacity = '1';
 });
 
-// function to fetch the search query
-const handleSearch = async (search) => {
-  fetch(SEARCH_itemS_URL + `${search}`)
-    .then((res) => res.json())
-    .then((data) => {
-      /*  console.log(data.results); */
-      createItem(data.results);
-    });
-};
-
 function detailsShow() {
   const cards = [...document.querySelectorAll('.item_card')];
   const details = document.querySelector('.details_modal');
@@ -434,5 +453,4 @@ const createDetails = (array, dataId) => {
         details.classList.remove('show');
       });
     });
-
-}
+};
