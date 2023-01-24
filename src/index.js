@@ -10,6 +10,7 @@ const prevBtn = document.querySelector('.prev_btn');
 const nextBtn = document.querySelector('.next_btn');
 const paginationButtons = document.querySelector('.pagination_btns');
 const itemsList = document.querySelector('#items_list');
+
 /* let itemsArr = [...itemsList.querySelectorAll('.item_card')]; */
 let itemsArr = [];
 
@@ -256,7 +257,7 @@ const createItem = (item) => {
     });
 
     html += `
-    <li class="item_card item_card_front">
+    <li class="item_card item_card_front" data-id="${item.id}">
                 <img src="${item.background_image}" class="game_img" alt="img of ${item.name}">
                 <h2>${item.name}</h2>
                 <div class="item_info">
@@ -267,18 +268,22 @@ const createItem = (item) => {
                     </div>
                 </div>
                 <div class="item_card_back item_review">
+                    <p class="review_click">Click for more details</p>
                     <p>Review: </p>
                     <p>${item.name}</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
+                    <p>Reviews, trailers & other fun endpoints are behind a payed plan. SO You get - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate ipsam fugiat facilis dolorum
                         at impedit quae laboriosam ullam laudantium optio.</p>
                 </div>
             </li>
     `;
     ul.innerHTML = html;
   });
+
+  detailsShow();
 };
 
 const searchBtnActive = document.querySelector('.search_btn');
+const searchText = document.querySelector('.search_text');
 
 // helper functions
 const toggleClass = (el, className) => el.classList.toggle(className);
@@ -297,6 +302,8 @@ searchBtnActive.addEventListener('click', (e) => {
     document.querySelector('form > .search_wrapper > #submit'),
     'active'
   );
+
+  searchText.style.opacity = '0';
 
   if (searchBtnActive.classList.contains('fa-magnifying-glass')) {
     removeClass(searchBtnActive, 'fa-magnifying-glass');
@@ -327,6 +334,7 @@ form.addEventListener('submit', function (e) {
     'active'
   );
   addClass(searchBtnActive, 'fa-magnifying-glass');
+  searchText.style.opacity = '1';
 });
 
 // function to fetch the search query
@@ -338,3 +346,93 @@ const handleSearch = async (search) => {
       createItem(data.results);
     });
 };
+
+function detailsShow() {
+  const cards = [...document.querySelectorAll('.item_card')];
+  const details = document.querySelector('.details_modal');
+  cards.forEach((c) => {
+    c.addEventListener('click', (e) => {
+      console.log('card is clicked');
+      details.classList.add('show');
+
+      console.log(e.target);
+      console.log(e.target.dataset.id);
+      createDetails(itemsArr, e.target.dataset.id);
+    });
+  });
+}
+
+// almost same as the item create function
+const createDetails = (array, dataId) => {
+  console.log(array);
+  array
+    .filter((item) => item.id == dataId)
+    .map((item) => {
+      let details = document.querySelector('.details_modal');
+      details.innerHTML = '';
+      let html = '';
+      let platforms = '';
+      let imgcontainer;
+
+      item.parent_platforms.forEach((p) => {
+        let name = p.platform.name;
+        switch (name) {
+          case 'PC':
+            name = pc;
+            break;
+          case 'PlayStation':
+            name = ps;
+            break;
+          case 'Xbox':
+            name = xbox;
+            break;
+          case 'Nintendo':
+            name = nintendo;
+            break;
+          default:
+            return null;
+        }
+
+        platforms += `
+                    <span>${name}</span>
+                    `;
+      });
+
+      item.short_screenshots.forEach((th) => {
+        imgcontainer += `
+        <img className="thumbnails" src="${th.image}" alt="">
+        `;
+      });
+
+      html += `
+    <div class="details_container">
+            <button class="go_back_btn">BACK</button>
+            <img class="details_img" src="${item.background_image}" alt="img of ${item.name}">
+            <h2 class="details_title">${item.name}</h2>
+            <div class="details_info">
+                <span class="details_score">Average Rating: ${item.rating}</span>
+                <span class="details_score">Matacritic score: ${item.metacritic}</span>
+                <p class="details_platforms">Plattforms: &nbsp;
+                ${platforms}
+                </p>
+                <div class="details_release_date">Release date: 2022-10-12</div>
+            </div>
+            <div class="details_desc">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, excepturi. Sed inventore eaque
+                    delectus quas commodi illum voluptas minus aliquid quia. Iste sunt animi aspernatur aut. Quibusdam
+                    illum temporibus, molestiae atque animi, quasi neque delectus corrupti in nemo dignissimos qui
+                    suscipit. Ullam atque, nostrum ut libero fugit harum soluta. Illo odit nisi earum autem aspernatur
+                    similique, tempore ad esse aut?</p>
+            </div>
+            <div class="details_thumbnails">${imgcontainer}</div>
+        </div>
+    `;
+      details.innerHTML = html;
+
+      let back = document.querySelector('.go_back_btn');
+      back.addEventListener('click', () => {
+        details.classList.remove('show');
+      });
+    });
+
+}

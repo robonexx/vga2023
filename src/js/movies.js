@@ -269,6 +269,7 @@ const createItem = (item) => {
 };
 
 const searchBtnActive = document.querySelector('.search_btn');
+const searchText = document.querySelector('.search_text');
 
 // helper functions
 const toggleClass = (el, className) => el.classList.toggle(className);
@@ -287,6 +288,8 @@ searchBtnActive.addEventListener('click', (e) => {
     document.querySelector('form > .search_wrapper > #submit'),
     'active'
   );
+
+  searchText.style.opacity = '0';
 
   if (searchBtnActive.classList.contains('fa-magnifying-glass')) {
     removeClass(searchBtnActive, 'fa-magnifying-glass');
@@ -317,6 +320,7 @@ form.addEventListener('submit', function (e) {
     'active'
   );
   addClass(searchBtnActive, 'fa-magnifying-glass');
+  searchText.style.opacity = '1';
 });
 
 // function to fetch the search query

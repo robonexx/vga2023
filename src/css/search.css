@@ -7,13 +7,14 @@
     z-index: 2;    
 }
 
-form .text {
+form .search_text {
     margin-top: 0.5rem;
     position: absolute;
     left: 57.5%;
     font-family: var(--font-primary);
     font-size: 0.8rem;    
     z-index: -1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 i.fa-solid.fa-caret-left {

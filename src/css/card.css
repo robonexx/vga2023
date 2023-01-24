@@ -19,6 +19,10 @@
     animation: cardShow 1s ease 1;
   }
 
+  .item_card > * {
+    pointer-events: none;
+  }
+
 @keyframes cardShow {
   from {
     opacity: 0;
@@ -53,8 +57,8 @@ transform: scale(1);
   .item_card > h2 {
     text-transform: uppercase;
     text-align: center;
-    color: var(--color-primary);
     font-size: clamp(1rem, 1vw, 1.2rem);
+    color: var(--color-primary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -91,24 +95,25 @@ transform: scale(1);
   } */
   
   .item_info .item_platforms {
+    padding: 0.25rem 0rem;
     width: 100%;
     display: flex;
-    place-content: center;
-    padding: 0.25rem 0rem;
+    place-content: center;   
   }
-
 
   .item_card_back {
     background-color: var(--color-card);
+    pointer-events: none;
+    visibility: none;
   }
   
   .item_review {
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    height: 100%;
+    right: 0;    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,17 +136,19 @@ transform: scale(1);
     opacity: 0.6;
     z-index: -1;
   }
-  
+  /* 
   .item_review:hover,
   .item_review:active,
   .item_review:focus {
     opacity: 1;
-  }
+  } */
   
   .item_card:hover .item_review,
   .item_card:active .item_review {
     transform: scale(1);
+    color: #f4f8f8;
     opacity: 1;
+    pointer-events: none;
   }
 
   .item_review .overview {
@@ -154,6 +161,12 @@ transform: scale(1);
     overflow-y: scroll;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+  }
+
+  .review_click {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: var(--color-card-wrapper-bg);
   }
 
   .item_review .overview::-webkit-scrollbar { 
