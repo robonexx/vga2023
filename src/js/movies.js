@@ -47,7 +47,7 @@ const fetchMovies = async () => {
       return;
     } else {
       createItem(itemsArr);
-      /* console.log(itemsArr); */
+      console.log(itemsArr);
       getPaginationNumbers(itemsArr);
     }
   } catch (error) {
